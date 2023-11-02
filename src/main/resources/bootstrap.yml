@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: dev
+  application:
+    name: employee-administrator-ms
+feign-clients:
+  employee:
+    url: http://${EMPLOYEE_HOST}:${EMPLOYEE_PORT}/$EMPLOYEE_PATH
+  server:
+    error:
+      include-stacktrace: never
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+  api:
+    docs:
+      path: /swagger-doc/v3/api-docs
+      groups:
+        enable: true
